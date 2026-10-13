@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa: Conhecimento sobre o Manejo da Fibromialgia</title>
+    <style>
+        :root {
+            --primary-color: #004a80;
+            --primary-hover: #003359;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #cccccc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin: 0 0 5px 0;
+        }
+
+        header h2 {
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .step-section {
+            display: none;
+        }
+
+        .step-section.active {
+            display: block;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 25px;
+        }
+
+        p, label {
+            font-size: 0.95rem;
+        }
+
+        .tcle-box {
+            background-color: #fafafa;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-align: justify;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label.required::after {
+            content: " *";
+            color: red;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        .radio-group, .checkbox-group {
+            margin-top: 8px;
+        }
+
+        .radio-group label, .checkbox-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        table.likert-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+
+        table.likert-table th, table.likert-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            text-align: center;
+        }
+
+        table.likert-table th:first-child, table.likert-table td:first-child {
+            text-align: left;
+            width: 40%;
+        }
+
+        table.likert-table th {
+            background-color: #f0f4f8;
+            color: var(--primary-color);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .consent-check {
+            margin-bottom: 20px;
+            background: #eef4f9;
+            padding: 12px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>CENTRO UNIVERSITÁRIO DE JOÃO PESSOA - UNIPÊ</h1>
+        <h2>Conhecimento de Estudantes de Graduação sobre o Manejo da Fibromialgia</h2>
+    </header>
+
+    <!-- ETAPA 1: TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (TCLE) -->
+    <div id="step-tcle" class="step-section active">
+        <h3>Termo de Consentimento Livre e Esclarecido (TCLE)</h3>
+        <div class="tcle-box">
+            <p><strong>Convite para participar da pesquisa:</strong> Você está sendo convocado(a) a participar da pesquisa intitulada <em>"Conhecimento de estudantes de graduação sobre o manejo da fibromialgia em um centro universitário na Paraíba"</em>, coordenada pelo Prof. Dr. Luiz Henrique da Silva[cite: 3].</p>
+            
+            <p><strong>Objetivo do Estudo:</strong> Analisar o conhecimento de estudantes dos cursos de graduação em Enfermagem, Medicina, Fisioterapia e Psicologia sobre o manejo terapêutico da Fibromialgia, visando subsidiar estratégias pedagógicas e qualificar a assistência integral no âmbito do SUS[cite: 3, 5, 6].</p>
+
+            <p><strong>Procedimentos:</strong> Caso aceite participar, você responderá a este formulário eletrônico estruturado, com duração estimada de 10 a 15 minutos, contendo questões sobre seu perfil sociodemográfico/acadêmico e conhecimentos teóricos-clínicos sobre a fibromialgia[cite: 3, 5, 8].</p>
+
+            <p><strong>Riscos e Benefícios:</strong> Os riscos associados são mínimos, podendo incluir leve fadiga ou desconforto temporal ao responder. Como benefícios, o estudo contribuirá para mapear lacunas acadêmicas e aprimorar a formação voltada à dor crônica e ao cuidado interprofissional[cite: 5].</p>
+
+            <p><strong>Sigilo e Confidencialidade:</strong> Sua participação é totalmente voluntária. Os dados coletados serão tratados com total sigilo e confidencialidade, utilizados exclusivamente para fins científicos e acadêmicos, sem a divulgação de sua identidade.</p>
+
+            <p><strong>Aspectos Éticos:</strong> A pesquisa segue rigorosamente as Resoluções nº 466/2012, 510/2016, 580/2018 do Conselho Nacional de Saúde (CNS) e a Lei Federal nº 15.176/2025[cite: 3].</p>
+        </div>
+
+        <div class="consent-check">
+            <label class="required">
+                <input type="checkbox" id="check-concordo"> Declaro que li e compreendi as informações acima, tenho idade igual ou superior a 18 anos, e concordo voluntariamente em participar desta pesquisa.
+            </label>
+        </div>
+
+        <button type="button" id="btn-avancar" onclick="avancarParaFormulario()">Prosseguir para o Questionário</button>
+    </div>
+
+    <!-- ETAPA 2: QUESTIONÁRIO DA PESQUISA -->
+    <form id="form-pesquisa" class="step-section" onsubmit="enviarFormulario(event)">
+        
+        <!-- Seção I: Perfil Sociodemográfico e Acadêmico -->
+        <h3>Seção I: Perfil Sociodemográfico e Acadêmico</h3>
+        
+        <div class="form-group">
+            <label class="required" for="idade">1. Qual a sua idade (em anos completos)?</label>
+            <input type="number" id="idade" name="idade" min="18" required placeholder="Ex: 21">
+        </div>
+
+        <div class="form-group">
+            <label class="required">2. Sexo:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="sexo" value="Feminino" required> Feminino</label>
+                <label><input type="radio" name="sexo" value="Masculino"> Masculino</label>
+                <label><input type="radio" name="sexo" value="Outro"> Outro / Prefiro não informar</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="required" for="curso">3. Curso de Graduação:</label>
+            <select id="curso" name="curso" required>
+                <option value="">Selecione seu curso</option>
+                <option value="Enfermagem">Enfermagem</option>
+                <option value="Medicina">Medicina</option>
+                <option value="Fisioterapia">Fisioterapia</option>
+                <option value="Psicologia">Psicologia</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="required" for="periodo">4. Período letivo atual:</label>
+            <input type="text" id="periodo" name="periodo" required placeholder="Ex: 4º período">
+        </div>
+
+        <!-- Seção II: Atuação Interprofissional e Cuidado Integral -->
+        <h3>Seção II: Percepção sobre Atuação Interprofissional</h3>
+        
+        <div class="form-group">
+            <label class="required">5. Você considera que a abordagem interprofissional (envolvendo enfermagem, medicina, fisioterapia e psicologia) é essencial para o manejo adequado da Fibromialgia?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="interprofissional" value="Concordo totalmente" required> Concordo totalmente</label>
+                <label><input type="radio" name="interprofissional" value="Concordo parcialmente"> Concordo parcialmente</label>
+                <label><input type="radio" name="interprofissional" value="Neutro"> Neutro / Indeciso</label>
+                <label><input type="radio" name="interprofissional" value="Discordo parcialmente"> Discordo parcialmente</label>
+                <label><input type="radio" name="interprofissional" value="Discordo totalmente"> Discordo totalmente</label>
+            </div>
+        </div>
+
+        <!-- Seção III: Domínio Teórico-Clínico (Escala Likert) -->
+        <h3>Seção III: Domínio Teórico-Clínico sobre a Fibromialgia</h3>
+        <p>Indique o seu grau de concordância com as afirmativas abaixo, considerando uma escala de 1 (Discordo Totalmente) a 5 (Concordo Totalmente):</p>
+
+        <table class="likert-table">
+            <thead>
+                <tr>
+                    <th>Afirmativa</th>
+                    <th>1<br>Discordo Totalmente</th>
+                    <th>2<br>Discordo Parcialmente</th>
+                    <th>3<br>Neutro</th>
+                    <th>4<br>Concordo Parcialmente</th>
+                    <th>5<br>Concordo Totalmente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A Fibromialgia é caracterizada por processos inflamatórios periféricos graves nas articulações afetadas.</td>
+                    <td><input type="radio" name="likert_1" value="1" required></td>
+                    <td><input type="radio" name="likert_1" value="2"></td>
+                    <td><input type="radio" name="likert_1" value="3"></td>
+                    <td><input type="radio" name="likert_1" value="4"></td>
+                    <td><input type="radio" name="likert_1" value="5"></td>
+                </tr>
+                <tr>
+                    <td>O diagnóstico da Fibromialgia é essencialmente clínico, englobando a avaliação de dor generalizada e sintomas associados.</td>
+                    <td><input type="radio" name="likert_2" value="1" required></td>
+                    <td><input type="radio" name="likert_2" value="2"></td>
+                    <td><input type="radio" name="likert_2" value="3"></td>
+                    <td><input type="radio" name="likert_2" value="4"></td>
+                    <td><input type="radio" name="likert_2" value="5"></td>
+                </tr>
+                <tr>
+                    <td>O uso isolado de corticoides e anti-inflamatórios não esteroidais (AINEs) possui eficácia recomendada de primeira linha no tratamento da fibromialgia.</td>
+                    <td><input type="radio" name="likert_3" value="1" required></td>
+                    <td><input type="radio" name="likert_3" value="2"></td>
+                    <td><input type="radio" name="likert_3" value="3"></td>
+                    <td><input type="radio" name="likert_3" value="4"></td>
+                    <td><input type="radio" name="likert_3" value="5"></td>
+                </tr>
+                <tr>
+                    <td>Medidas não farmacológicas, como exercícios físicos aeróbicos e intervenções psicológicas, são pilares fundamentais no manejo terapêutico.</td>
+                    <td><input type="radio" name="likert_4" value="1" required></td>
+                    <td><input type="radio" name="likert_4" value="2"></td>
+                    <td><input type="radio" name="likert_4" value="3"></td>
+                    <td><input type="radio" name="likert_4" value="4"></td>
+                    <td><input type="radio" name="likert_4" value="5"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="submit">Enviar Respostas</button>
+    </form>
+
+</div>
+
+<script>
+    function avancarParaFormulario() {
+        const checkboxConcordo = document.getElementById('check-concordo');
+        if (!checkboxConcordo.checked) {
+            alert('Você precisa aceitar os termos do TCLE para prosseguir com a pesquisa.');
+            return;
+        }
+        document.getElementById('step-tcle').classList.remove('active');
+        document.getElementById('form-pesquisa').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function enviarFormulario(event) {
+        event.preventDefault();
+        alert('Obrigado pela sua participação! As respostas foram registradas com sucesso.');
+        // Aqui você pode integrar com o Google Forms real ou backend desejado.
+    }
+</script>
+
+</body>
+</html>
