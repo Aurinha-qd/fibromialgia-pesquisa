@@ -7,12 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta extraída da Logo do Projeto de Fibromialgia */
-            --primary: #8b71b8;          /* Roxo Lilás do Laço */
-            --primary-dark: #6b5299;     /* Tom mais escuro do roxo */
-            --primary-light: #f3eef9;    /* Fundo suave lilás */
-            --accent-blue: #0e305e;      /* Azul-marinho da marca */
-            --header-bg: #f3eff8;       /* Tom exato do fundo da logo circular do projeto */
+            --primary: #8b71b8;
+            --primary-dark: #6b5299;
+            --primary-light: #f3eef9;
+            --accent-blue: #0e305e;
+            --header-bg: #f3eff8;
             --bg-gradient: linear-gradient(135deg, #f7f5fa 0%, #e9e3f3 100%);
             --card-bg: #ffffff;
             --text-main: #1f2937;
@@ -45,10 +44,8 @@
             box-shadow: var(--shadow);
             overflow: hidden;
             border: 1px solid #efe8f8;
-            transition: all 0.3s ease;
         }
 
-        /* Banner Superior Lilás com a Logo do Projeto Centralizada */
         .top-banner {
             background-color: var(--header-bg);
             padding: 30px 20px 25px 20px;
@@ -63,12 +60,10 @@
             filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));
         }
 
-        /* Corpo do Formulário */
         .card-body {
             padding: 35px 40px 40px 40px;
         }
 
-        /* Logo do UNIPÊ reposicionada na parte de baixo */
         .unipe-header-row {
             display: flex;
             justify-content: space-between;
@@ -117,16 +112,10 @@
 
         .step-section {
             display: none;
-            animation: fadeIn 0.4s ease-in-out forwards;
         }
 
         .step-section.active {
             display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         h3 {
@@ -304,16 +293,12 @@
             cursor: pointer;
             display: block;
             width: 100%;
-            transition: background-color 0.2s, transform 0.1s;
+            transition: background-color 0.2s;
             box-shadow: 0 4px 12px rgba(139, 113, 184, 0.3);
         }
 
         button.btn-primary:hover {
             background-color: var(--primary-dark);
-        }
-
-        button.btn-primary:active {
-            transform: scale(0.99);
         }
     </style>
 </head>
@@ -322,17 +307,15 @@
 <div class="wrapper">
     <div class="card">
         
-        <!-- Banner Superior com o Tom de Fundo da Logo e a Imagem do Projeto em Destaque Centralizada -->
         <div class="top-banner">
-            <img src="logo-projeto.png.jpeg" alt="Logo Pesquisa Fibromialgia" class="logo-projeto-large"[cite: 15, 18]>
+            <img src="logo-projeto.png.jpeg" alt="Logo Pesquisa Fibromialgia" class="logo-projeto-large">
         </div>
 
         <div class="card-body">
             
-            <!-- Logo do UNIPÊ Descida para o Topo do Conteúdo -->
             <div class="unipe-header-row">
                 <span class="badge">Pesquisa Científica • Cuidado & Humanização</span>
-                <img src="logo-unipe.png.png" alt="Logo UNIPÊ" class="logo-unipe-down"[cite: 16, 18]>
+                <img src="logo-unipe.png.png" alt="Logo UNIPÊ" class="logo-unipe-down">
             </div>
 
             <header>
@@ -340,7 +323,7 @@
                 <h2>Avaliação do Conhecimento de Estudantes de Graduação</h2>
             </header>
 
-            <!-- ETAPA 1: TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (TCLE) -->
+            <!-- ETAPA 1: TCLE -->
             <div id="step-tcle" class="step-section active">
                 <h3>Termo de Consentimento Livre e Esclarecido (TCLE)</h3>
                 <div class="tcle-box">
@@ -367,7 +350,7 @@
                 <button type="button" class="btn-primary" onclick="avancarParaFormulario()">Prosseguir para o Questionário</button>
             </div>
 
-            <!-- ETAPA 2: QUESTIONÁRIO DA PESQUISA -->
+            <!-- ETAPA 2: QUESTIONÁRIO -->
             <form id="form-pesquisa" class="step-section" onsubmit="enviarFormulario(event)">
                 
                 <h3>Seção I: Perfil Sociodemográfico e Acadêmico</h3>
@@ -476,7 +459,7 @@
 
 <script>
     function avancarParaFormulario() {
-        const checkboxConcordo = document.getElementById('check-concordo');
+        var checkboxConcordo = document.getElementById('check-concordo');
         if (!checkboxConcordo.checked) {
             alert('Por favor, confirme que leu e concorda com o TCLE para prosseguir.');
             return;
