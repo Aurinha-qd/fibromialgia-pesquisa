@@ -1,479 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesquisa: Conhecimento sobre o Manejo da Fibromialgia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #8b71b8;
-            --primary-dark: #6b5299;
-            --primary-light: #f3eef9;
-            --accent-blue: #0e305e;
-            --header-bg: #f3eff8;
-            --bg-gradient: linear-gradient(135deg, #f7f5fa 0%, #e9e3f3 100%);
-            --card-bg: #ffffff;
-            --text-main: #1f2937;
-            --text-muted: #6b7280;
-            --border: #dcd3eb;
-            --radius: 16px;
-            --shadow: 0 10px 25px -5px rgba(139, 113, 184, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-main);
-            margin: 0;
-            padding: 40px 20px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .wrapper {
-            width: 100%;
-            max-width: 760px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            border: 1px solid #efe8f8;
-        }
-
-        .top-banner {
-            background-color: var(--header-bg);
-            padding: 30px 20px 25px 20px;
-            text-align: center;
-            border-bottom: 1px solid #e7dff2;
-        }
-
-        .logo-projeto-large {
-            max-height: 200px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));
-        }
-
-        .card-body {
-            padding: 35px 40px 40px 40px;
-        }
-
-        .unipe-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .logo-unipe-down {
-            max-height: 42px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .badge {
-            background-color: var(--primary-light);
-            color: var(--primary-dark);
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-            border: 1px solid #e3d7f5;
-        }
-
-        header h1 {
-            font-size: 1.55rem;
-            color: var(--accent-blue);
-            margin: 0 0 8px 0;
-            font-weight: 700;
-        }
-
-        header h2 {
-            font-size: 0.98rem;
-            color: var(--primary-dark);
-            margin: 0;
-            font-weight: 500;
-        }
-
-        .step-section {
-            display: none;
-        }
-
-        .step-section.active {
-            display: block;
-        }
-
-        h3 {
-            color: var(--accent-blue);
-            font-size: 1.15rem;
-            border-bottom: 2px solid var(--primary-light);
-            padding-bottom: 10px;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .tcle-box {
-            background-color: #faf8fd;
-            border: 1px solid var(--border);
-            padding: 22px;
-            height: 260px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            line-height: 1.7;
-            text-align: justify;
-            color: #4b5563;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        label.question-label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--accent-blue);
-            font-size: 0.95rem;
-        }
-
-        label.required::after {
-            content: " *";
-            color: #dc2626;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.95rem;
-            box-sizing: border-box;
-            background-color: #fff;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        input[type="text"]:focus,
-        input[type="number"]:focus,
-        select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(139, 113, 184, 0.2);
-        }
-
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 8px;
-        }
-
-        .option-card {
-            display: flex;
-            align-items: center;
-            border: 1px solid var(--border);
-            padding: 12px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            background-color: #fff;
-        }
-
-        .option-card:hover {
-            border-color: var(--primary);
-            background-color: var(--primary-light);
-        }
-
-        .option-card input {
-            margin-right: 12px;
-            accent-color: var(--primary);
-            width: 18px;
-            height: 18px;
-        }
-
-        .consent-check {
-            background-color: var(--primary-light);
-            border: 1px solid #dfd1f4;
-            padding: 16px;
-            border-radius: 10px;
-            margin-bottom: 24px;
-        }
-
-        .consent-check label {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 0.92rem;
-            cursor: pointer;
-            font-weight: 500;
-            color: var(--primary-dark);
-        }
-
-        .consent-check input {
-            margin-top: 2px;
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary);
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin-top: 10px;
-            margin-bottom: 25px;
-        }
-
-        table.likert-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        table.likert-table th, table.likert-table td {
-            border: 1px solid #e2e8f0;
-            padding: 12px 10px;
-            text-align: center;
-        }
-
-        table.likert-table th:first-child, table.likert-table td:first-child {
-            text-align: left;
-            width: 45%;
-            font-weight: 500;
-            color: var(--text-main);
-        }
-
-        table.likert-table th {
-            background-color: #f7f4fc;
-            color: var(--accent-blue);
-            font-weight: 600;
-            font-size: 0.8rem;
-        }
-
-        table.likert-table tr:hover {
-            background-color: #faf7fd;
-        }
-
-        table.likert-table input[type="radio"] {
-            width: 16px;
-            height: 16px;
-            accent-color: var(--primary);
-            cursor: pointer;
-        }
-
-        button.btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            transition: background-color 0.2s;
-            box-shadow: 0 4px 12px rgba(139, 113, 184, 0.3);
-        }
-
-        button.btn-primary:hover {
-            background-color: var(--primary-dark);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionário de Pesquisa: Fibromialgia na Formação Acadêmica</title>
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="card">
-        
-        <div class="top-banner">
-            <img src="logo-projeto.png.jpeg" alt="Logo Pesquisa Fibromialgia" class="logo-projeto-large">
-        </div>
+  <h2>Questionário de Pesquisa: Fibromialgia (FM) na Formação Acadêmica</h2>
 
-        <div class="card-body">
-            
-            <div class="unipe-header-row">
-                <span class="badge">Pesquisa Científica • Cuidado & Humanização</span>
-                <img src="logo-unipe.png.png" alt="Logo UNIPÊ" class="logo-unipe-down">
-            </div>
+  <form action="/enviar-resposta" method="POST">
 
-            <header>
-                <h1>Manejo da Fibromialgia</h1>
-                <h2>Avaliação do Conhecimento de Estudantes de Graduação</h2>
-            </header>
+    <!-- 1. PERFIL SOCIODEMOGRÁFICO -->
+    <fieldset>
+      <legend><strong>1. Perfil Sociodemográfico</strong></legend>
+      <br>
 
-            <!-- ETAPA 1: TCLE -->
-            <div id="step-tcle" class="step-section active">
-                <h3>Termo de Consentimento Livre e Esclarecido (TCLE)</h3>
-                <div class="tcle-box">
-                    <p><strong>Convite para participar da pesquisa:</strong> Você está sendo convidado(a) a participar da pesquisa intitulada <em>"Conhecimento de estudantes de graduação sobre o manejo da fibromialgia em um centro universitário na Paraíba"</em>[cite: 3].</p>
-                    
-                    <p><strong>Objetivo do Estudo:</strong> Analisar o conhecimento de estudantes dos cursos de graduação em Enfermagem, Medicina, Fisioterapia e Psicologia sobre o manejo terapêutico da Fibromialgia, visando subsidiar melhorias pedagógicas e qualificar a assistência integral no SUS[cite: 3, 5].</p>
+      <div>
+        <label for="idade">Idade (anos):</label><br>
+        <input type="number" id="idade" name="idade" min="15" max="100" required>
+      </div>
+      <br>
 
-                    <p><strong>Procedimentos:</strong> Caso aceite participar, você responderá a este formulário eletrônico estruturado (duração aproximada de 10 minutos), contendo questões sobre seu perfil e conhecimentos clínicos acerca da fibromialgia[cite: 3, 8].</p>
+      <div>
+        <label>Sexo biológico:</label><br>
+        <input type="radio" id="sexo_f" name="sexo_biologico" value="feminino" required>
+        <label for="sexo_f">Feminino</label><br>
+        <input type="radio" id="sexo_m" name="sexo_biologico" value="masculino">
+        <label for="sexo_m">Masculino</label>
+      </div>
+      <br>
 
-                    <p><strong>Riscos e Benefícios:</strong> Os riscos são mínimos (leve fadiga temporária). Como benefício, o estudo ajudará a mapear lacunas acadêmicas e fortalecer o ensino interprofissional voltado à dor crônica[cite: 5].</p>
+      <div>
+        <label for="etnia">Raça / Cor / Etnia autodeclarada:</label><br>
+        <select id="etnia" name="etnia" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="amarela">Amarela</option>
+          <option value="branca">Branca</option>
+          <option value="indigena">Indígena</option>
+          <option value="parda">Parda</option>
+          <option value="preta">Preta</option>
+          <option value="outra">Outra / Prefiro não declarar</option>
+        </select>
+      </div>
+      <br>
 
-                    <p><strong>Sigilo e Confidencialidade:</strong> Sua participação é voluntária e anônima. Os dados consolidados serão utilizados estritamente para fins científicos, sem exposição de identidades.</p>
+      <div>
+        <label for="estado_civil">Estado civil:</label><br>
+        <select id="estado_civil" name="estado_civil" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="solteiro">Solteiro(a)</option>
+          <option value="casado_uniao">Casado(a) / União estável</option>
+          <option value="divorciado">Divorciado(a) / Separado(a)</option>
+          <option value="viuvo">Viúvo(a)</option>
+        </select>
+      </div>
+      <br>
 
-                    <p><strong>Aspectos Éticos:</strong> A pesquisa está em conformidade com as diretrizes das Resoluções nº 466/2012, 510/2016 e 580/2018 do CNS e da Lei Federal nº 15.176/2025[cite: 3, 8].</p>
-                </div>
+      <div>
+        <label for="arranjo_familiar">Número de pessoas residentes no mesmo domicílio (incluindo você):</label><br>
+        <input type="number" id="arranjo_familiar" name="arranjo_familiar" min="1" max="20" required>
+      </div>
+    </fieldset>
 
-                <div class="consent-check">
-                    <label>
-                        <input type="checkbox" id="check-concordo"> 
-                        <span>Declaro que li, compreendi as informações acima, tenho 18 anos ou mais, e concordo voluntariamente em participar da pesquisa.</span>
-                    </label>
-                </div>
+    <br>
 
-                <button type="button" class="btn-primary" onclick="avancarParaFormulario()">Prosseguir para o Questionário</button>
-            </div>
+    <!-- 2. PERFIL SOCIOECONÔMICO -->
+    <fieldset>
+      <legend><strong>2. Perfil Socioeconômico</strong></legend>
+      <br>
 
-            <!-- ETAPA 2: QUESTIONÁRIO -->
-            <form id="form-pesquisa" class="step-section" onsubmit="enviarFormulario(event)">
-                
-                <h3>Seção I: Perfil Sociodemográfico e Acadêmico</h3>
-                
-                <div class="form-group">
-                    <label class="question-label required" for="idade">1. Qual a sua idade (em anos completos)?</label>
-                    <input type="number" id="idade" name="idade" min="18" required placeholder="Ex: 21">
-                </div>
+      <div>
+        <label for="renda_familiar">Renda familiar mensal total (em salários mínimos):</label><br>
+        <select id="renda_familiar" name="renda_familiar" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="ate_1_sm">Até 1 salário mínimo</option>
+          <option value="1_a_3_sm">De 1 a 3 salários mínimos</option>
+          <option value="3_a_5_sm">De 3 a 5 salários mínimos</option>
+          <option value="5_a_10_sm">De 5 a 10 salários mínimos</option>
+          <option value="mais_10_sm">Mais de 10 salários mínimos</option>
+        </select>
+      </div>
+      <br>
 
-                <div class="form-group">
-                    <label class="question-label required">2. Sexo:</label>
-                    <div class="options-grid">
-                        <label class="option-card"><input type="radio" name="sexo" value="Feminino" required> Feminino</label>
-                        <label class="option-card"><input type="radio" name="sexo" value="Masculino"> Masculino</label>
-                        <label class="option-card"><input type="radio" name="sexo" value="Outro"> Outro / Prefiro não informar</label>
-                    </div>
-                </div>
+      <div>
+        <label for="situacao_laboral">Situação laboral atual (vínculo de trabalho):</label><br>
+        <select id="situacao_laboral" name="situacao_laboral" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="apenas_estuda">Apenas estuda</option>
+          <option value="estagio_remunerado">Estágio remunerado</option>
+          <option value="trabalho_formal">Trabalho formal (CLT/Efetivo)</option>
+          <option value="trabalho_informal">Trabalho informal / Autônomo</option>
+        </select>
+      </div>
+    </fieldset>
 
-                <div class="form-group">
-                    <label class="question-label required" for="curso">3. Curso de Graduação:</label>
-                    <select id="curso" name="curso" required>
-                        <option value="">Selecione seu curso</option>
-                        <option value="Enfermagem">Enfermagem</option>
-                        <option value="Medicina">Medicina</option>
-                        <option value="Fisioterapia">Fisioterapia</option>
-                        <option value="Psicologia">Psicologia</option>
-                    </select>
-                </div>
+    <br>
 
-                <div class="form-group">
-                    <label class="question-label required" for="periodo">4. Período letivo atual:</label>
-                    <input type="text" id="periodo" name="periodo" required placeholder="Ex: 4º período">
-                </div>
+    <!-- 3. TRAJETÓRIA E CONTEXTO ACADÊMICO -->
+    <fieldset>
+      <legend><strong>3. Trajetória e Contexto Acadêmico</strong></legend>
+      <br>
 
-                <h3 style="margin-top: 35px;">Seção II: Percepção sobre Atuação Interprofissional</h3>
-                
-                <div class="form-group">
-                    <label class="question-label required">5. Você considera que a abordagem interprofissional (envolvendo enfermagem, medicina, fisioterapia e psicologia) é essencial para o manejo adequado da Fibromialgia?</label>
-                    <div class="options-grid">
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Concordo totalmente" required> Concordo totalmente</label>
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Concordo parcialmente"> Concordo parcialmente</label>
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Neutro"> Neutro / Indeciso</label>
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Discordo parcialmente"> Discordo parcialmente</label>
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Discordo totalmente"> Discordo totalmente</label>
-                    </div>
-                </div>
+      <div>
+        <label for="curso_area">Curso de vinculação atual:</label><br>
+        <input type="text" id="curso_area" name="curso_area" placeholder="Ex: Medicina, Enfermagem, Fisioterapia, etc." required>
+      </div>
+      <br>
 
-                <h3 style="margin-top: 35px;">Seção III: Domínio Teórico-Clínico</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">Indique seu grau de concordância com as afirmativas abaixo:</p>
+      <div>
+        <label for="periodo">Período / Semestre letivo atual:</label><br>
+        <input type="text" id="periodo" name="periodo" placeholder="Ex: 5º período" required>
+      </div>
+      <br>
 
-                <div class="table-container">
-                    <table class="likert-table">
-                        <thead>
-                            <tr>
-                                <th>Afirmativa</th>
-                                <th>1<br>Discordo Totalmente</th>
-                                <th>2<br>Discordo Parcialmente</th>
-                                <th>3<br>Neutro</th>
-                                <th>4<br>Concordo Parcialmente</th>
-                                <th>5<br>Concordo Totalmente</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>A Fibromialgia é caracterizada por processos inflamatórios periféricos graves nas articulações afetadas.</td>
-                                <td><input type="radio" name="likert_1" value="1" required></td>
-                                <td><input type="radio" name="likert_1" value="2"></td>
-                                <td><input type="radio" name="likert_1" value="3"></td>
-                                <td><input type="radio" name="likert_1" value="4"></td>
-                                <td><input type="radio" name="likert_1" value="5"></td>
-                            </tr>
-                            <tr>
-                                <td>O diagnóstico da Fibromialgia é essencialmente clínico, englobando a avaliação de dor generalizada e sintomas associados.</td>
-                                <td><input type="radio" name="likert_2" value="1" required></td>
-                                <td><input type="radio" name="likert_2" value="2"></td>
-                                <td><input type="radio" name="likert_2" value="3"></td>
-                                <td><input type="radio" name="likert_2" value="4"></td>
-                                <td><input type="radio" name="likert_2" value="5"></td>
-                            </tr>
-                            <tr>
-                                <td>O uso isolado de corticoides e anti-inflamatórios não esteroidais (AINEs) possui eficácia recomendada de primeira linha no tratamento.</td>
-                                <td><input type="radio" name="likert_3" value="1" required></td>
-                                <td><input type="radio" name="likert_3" value="2"></td>
-                                <td><input type="radio" name="likert_3" value="3"></td>
-                                <td><input type="radio" name="likert_3" value="4"></td>
-                                <td><input type="radio" name="likert_3" value="5"></td>
-                            </tr>
-                            <tr>
-                                <td>Medidas não farmacológicas, como exercícios físicos aeróbicos e intervenções psicológicas, são pilares fundamentais no manejo terapêutico.</td>
-                                <td><input type="radio" name="likert_4" value="1" required></td>
-                                <td><input type="radio" name="likert_4" value="2"></td>
-                                <td><input type="radio" name="likert_4" value="3"></td>
-                                <td><input type="radio" name="likert_4" value="4"></td>
-                                <td><input type="radio" name="likert_4" value="5"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+      <div>
+        <label for="ciclo_formacao">Ciclo de formação profissional:</label><br>
+        <select id="ciclo_formacao" name="ciclo_formacao" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="ciclo_basico">Ciclo Básico</option>
+          <option value="ciclo_clinico">Ciclo Clínico / Intermediário</option>
+          <option value="internato_estagio">Internato / Estágio Curricular Supervisionado</option>
+        </select>
+      </div>
+      <br>
 
-                <button type="submit" class="btn-primary" style="margin-top: 30px;">Enviar Respostas</button>
-            </form>
-
-        </div>
-    </div>
-</div>
-
-<script>
-    function avancarParaFormulario() {
-        var checkboxConcordo = document.getElementById('check-concordo');
-        if (!checkboxConcordo.checked) {
-            alert('Por favor, confirme que leu e concorda com o TCLE para prosseguir.');
-            return;
-        }
-        document.getElementById('step-tcle').classList.remove('active');
-        document.getElementById('form-pesquisa').classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function enviarFormulario(event) {
-        event.preventDefault();
-        alert('Muito obrigado! Suas respostas foram registradas com sucesso.');
-    }
-</script>
-
-</body>
-</html>
+      <div>
+        <label>Possui histórico de trancamentos de curso ou reprovações em disciplinas?</label><br>
+        <input type="radio" id="hist_sim" name="historico_trancamento_reprovacao" value="sim" required>
+        <label for="hist_sim">Sim</label><br>
