@@ -1,131 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Questionário de Pesquisa: Fibromialgia na Formação Acadêmica</title>
-</head>
-<body>
-
-  <h2>Questionário de Pesquisa: Fibromialgia (FM) na Formação Acadêmica</h2>
-
-  <form action="/enviar-resposta" method="POST">
-
-    <!-- 1. PERFIL SOCIODEMOGRÁFICO -->
+<!-- 4. ABORDAGENS INTEGRADAS E MULTIPROFISSIONAIS -->
     <fieldset>
-      <legend><strong>1. Perfil Sociodemográfico</strong></legend>
+      <legend><strong>4. Abordagens Integradas e Multiprofissionais</strong></legend>
       <br>
 
       <div>
-        <label for="idade">Idade (anos):</label><br>
-        <input type="number" id="idade" name="idade" min="15" max="100" required>
+        <label>Quais profissionais de saúde compõem o seu acompanhamento regular atualmente? <i>(Pode marcar mais de uma opção)</i></label><br>
+        <input type="checkbox" id="prof_reumatologista" name="equipe_saude[]" value="reumatologista">
+        <label for="prof_reumatologista">Reumatologista</label><br>
+
+        <input type="checkbox" id="prof_psicologo" name="equipe_saude[]" value="psicologo">
+        <label for="prof_psicologo">Psicólogo / Psicoterapeuta</label><br>
+
+        <input type="checkbox" id="prof_fisioterapeuta" name="equipe_saude[]" value="fisioterapeuta">
+        <label for="prof_fisioterapeuta">Fisioterapeuta</label><br>
+
+        <input type="checkbox" id="prof_educador_fisico" name="equipe_saude[]" value="educador_fisico">
+        <label for="prof_educador_fisico">Educador Físico / Personal Trainer</label><br>
+
+        <input type="checkbox" id="prof_nutricionista" name="equipe_saude[]" value="nutricionista">
+        <label for="prof_nutricionista">Nutricionista</label><br>
+
+        <input type="checkbox" id="prof_psiquiatra" name="equipe_saude[]" value="psiquiatra">
+        <label for="prof_psiquiatra">Psiquiatra</label><br>
+
+        <input type="checkbox" id="prof_clinico" name="equipe_saude[]" value="clinico_geral">
+        <label for="prof_clinico">Clínico Geral / Médico de Família</label><br>
+
+        <input type="checkbox" id="prof_outro" name="equipe_saude[]" value="outro">
+        <label for="prof_outro">Outro profissional</label><br>
+
+        <input type="checkbox" id="prof_nenhum" name="equipe_saude[]" value="nenhum">
+        <label for="prof_nenhum">Nenhum profissional no momento</label>
       </div>
       <br>
 
       <div>
-        <label>Sexo biológico:</label><br>
-        <input type="radio" id="sexo_f" name="sexo_biologico" value="feminino" required>
-        <label for="sexo_f">Feminino</label><br>
-        <input type="radio" id="sexo_m" name="sexo_biologico" value="masculino">
-        <label for="sexo_m">Masculino</label>
+        <label for="ajuda_multiprofissional">Em que medida o acompanhamento multiprofissional (fisioterapia, psicologia, atividade física, nutrição) tem ajudado a manter sua rotina acadêmica?</label><br>
+        <small>(1 = Nenhuma ajuda / Não realizo | 5 = Ajuda fundamental)</small><br>
+        <input type="range" id="ajuda_multiprofissional" name="ajuda_multiprofissional" min="1" max="5" value="3">
       </div>
       <br>
 
       <div>
-        <label for="etnia">Raça / Cor / Etnia autodeclarada:</label><br>
-        <select id="etnia" name="etnia" required>
-          <option value="" disabled selected>Selecione...</option>
-          <option value="amarela">Amarela</option>
-          <option value="branca">Branca</option>
-          <option value="indigena">Indígena</option>
-          <option value="parda">Parda</option>
-          <option value="preta">Preta</option>
-          <option value="outra">Outra / Prefiro não declarar</option>
-        </select>
-      </div>
-      <br>
+        <label>Consegue conciliar as recomendações de autocuidado (exercícios, higiene do sono, alimentação) com as exigências da graduação?</label><br>
+        <input type="radio" id="autocuidado_sim_total" name="concilia_autocuidado" value="sim_totalmente" required>
+        <label for="autocuidado_sim_total">Sim, totalmente</label><br>
 
-      <div>
-        <label for="estado_civil">Estado civil:</label><br>
-        <select id="estado_civil" name="estado_civil" required>
-          <option value="" disabled selected>Selecione...</option>
-          <option value="solteiro">Solteiro(a)</option>
-          <option value="casado_uniao">Casado(a) / União estável</option>
-          <option value="divorciado">Divorciado(a) / Separado(a)</option>
-          <option value="viuvo">Viúvo(a)</option>
-        </select>
-      </div>
-      <br>
+        <input type="radio" id="autocuidado_sim_parcial" name="concilia_autocuidado" value="sim_parcialmente">
+        <label for="autocuidado_sim_parcial">Sim, parcialmente (com dificuldades)</label><br>
 
-      <div>
-        <label for="arranjo_familiar">Número de pessoas residentes no mesmo domicílio (incluindo você):</label><br>
-        <input type="number" id="arranjo_familiar" name="arranjo_familiar" min="1" max="20" required>
+        <input type="radio" id="autocuidado_nao" name="concilia_autocuidado" value="nao">
+        <label for="autocuidado_nao">Não consigo conciliar</label>
       </div>
     </fieldset>
-
-    <br>
-
-    <!-- 2. PERFIL SOCIOECONÔMICO -->
-    <fieldset>
-      <legend><strong>2. Perfil Socioeconômico</strong></legend>
-      <br>
-
-      <div>
-        <label for="renda_familiar">Renda familiar mensal total (em salários mínimos):</label><br>
-        <select id="renda_familiar" name="renda_familiar" required>
-          <option value="" disabled selected>Selecione...</option>
-          <option value="ate_1_sm">Até 1 salário mínimo</option>
-          <option value="1_a_3_sm">De 1 a 3 salários mínimos</option>
-          <option value="3_a_5_sm">De 3 a 5 salários mínimos</option>
-          <option value="5_a_10_sm">De 5 a 10 salários mínimos</option>
-          <option value="mais_10_sm">Mais de 10 salários mínimos</option>
-        </select>
-      </div>
-      <br>
-
-      <div>
-        <label for="situacao_laboral">Situação laboral atual (vínculo de trabalho):</label><br>
-        <select id="situacao_laboral" name="situacao_laboral" required>
-          <option value="" disabled selected>Selecione...</option>
-          <option value="apenas_estuda">Apenas estuda</option>
-          <option value="estagio_remunerado">Estágio remunerado</option>
-          <option value="trabalho_formal">Trabalho formal (CLT/Efetivo)</option>
-          <option value="trabalho_informal">Trabalho informal / Autônomo</option>
-        </select>
-      </div>
-    </fieldset>
-
-    <br>
-
-    <!-- 3. TRAJETÓRIA E CONTEXTO ACADÊMICO -->
-    <fieldset>
-      <legend><strong>3. Trajetória e Contexto Acadêmico</strong></legend>
-      <br>
-
-      <div>
-        <label for="curso_area">Curso de vinculação atual:</label><br>
-        <input type="text" id="curso_area" name="curso_area" placeholder="Ex: Medicina, Enfermagem, Fisioterapia, etc." required>
-      </div>
-      <br>
-
-      <div>
-        <label for="periodo">Período / Semestre letivo atual:</label><br>
-        <input type="text" id="periodo" name="periodo" placeholder="Ex: 5º período" required>
-      </div>
-      <br>
-
-      <div>
-        <label for="ciclo_formacao">Ciclo de formação profissional:</label><br>
-        <select id="ciclo_formacao" name="ciclo_formacao" required>
-          <option value="" disabled selected>Selecione...</option>
-          <option value="ciclo_basico">Ciclo Básico</option>
-          <option value="ciclo_clinico">Ciclo Clínico / Intermediário</option>
-          <option value="internato_estagio">Internato / Estágio Curricular Supervisionado</option>
-        </select>
-      </div>
-      <br>
-
-      <div>
-        <label>Possui histórico de trancamentos de curso ou reprovações em disciplinas?</label><br>
-        <input type="radio" id="hist_sim" name="historico_trancamento_reprovacao" value="sim" required>
-        <label for="hist_sim">Sim</label><br>
