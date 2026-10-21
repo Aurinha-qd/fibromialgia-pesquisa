@@ -35,7 +35,7 @@
 
         .wrapper {
             width: 100%;
-            max-width: 760px;
+            max-width: 800px;
         }
 
         .card {
@@ -123,7 +123,7 @@
             font-size: 1.15rem;
             border-bottom: 2px solid var(--primary-light);
             padding-bottom: 10px;
-            margin-top: 0;
+            margin-top: 30px;
             margin-bottom: 20px;
             font-weight: 600;
         }
@@ -165,7 +165,8 @@
 
         input[type="text"],
         input[type="number"],
-        select {
+        select,
+        textarea {
             width: 100%;
             padding: 12px 16px;
             border: 1px solid var(--border);
@@ -174,11 +175,13 @@
             box-sizing: border-box;
             background-color: #fff;
             transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: inherit;
         }
 
         input[type="text"]:focus,
         input[type="number"]:focus,
-        select:focus {
+        select:focus,
+        textarea:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(139, 113, 184, 0.2);
@@ -327,15 +330,15 @@
                 <h2>Avaliação do Conhecimento de Estudantes de Graduação</h2>
             </header>
 
-            <!-- ETAPA 1: NOVO TCLE -->
+            <!-- ETAPA 1: TCLE -->
             <div id="step-tcle" class="step-section active">
-                <h3>TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (TCLE)</h3>
+                <h3 style="margin-top: 0;">TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (TCLE)</h3>
                 <div class="tcle-box">
                     <p>Você está sendo convidado a participar da pesquisa <strong>“CONHECIMENTO DE ESTUDANTES DE GRADUAÇÃO SOBRE O MANEJO DA FIBROMIALGIA EM UM CENTRO UNIVERSITÁRIO NA PARAÍBA”</strong>, coordenada pelo professor: <strong>LUIZ HENRIQUE DA SILVA</strong>, vinculado ao CENTRO UNIVERSITÁRIO DE JOÃO PESSOA – UNIPÊ.</p>
                     
                     <p>Sua participação é voluntária e você poderá desistir a qualquer momento, retirando seu consentimento, sem que isso lhe traga nenhum prejuízo, penalidade ou qualquer tipo de constrangimento junto à instituição de ensino. Este estudo tem por objetivo analisar o conhecimento de estudantes dos cursos de graduação em Enfermagem, Medicina, Fisioterapia e Psicologia de um centro universitário sobre o manejo terapêutico da Fibromialgia (FM). Justifica-se pela importância de identificar o nível de conhecimento e as lacunas na formação acadêmica sobre essa condição, de modo a subsidiar reflexões e possíveis melhorias no processo de ensino-aprendizagem relacionado ao tema, contribuindo para uma assistência mais qualificada aos pacientes com Fibromialgia.</p>
 
-                    <p>Caso decida participar, você responderá a um questionário eletrônico autoaplicável, disponibilizado por este forms, contendo questões objetivas relacionadas ao seu perfil sociodemográfico, socioeconômico e acadêmico, à sua trajetória de contato com o tema Fibromialgia durante a graduação, bem como questões sobre seu conhecimento e percepção acerca do manejo terapêutico dessa condição. O preenchimento é individual, não presencial. Não haverá entrevista presencial, gravação de áudio ou vídeo.</p>
+                    <p>Caso decida participar, você responderá a um questionário eletrônico autoaplicável, disponibilizado por meio deste forms contruído pelos alunos do projeto de pesquisa, contendo questões objetivas relacionadas ao seu perfil sociodemográfico, socioeconômico e acadêmico, à sua trajetória de contato com o tema Fibromialgia durante a graduação, bem como questões sobre seu conhecimento e percepção acerca do manejo terapêutico dessa condição. O preenchimento é individual, não presencial. Não haverá entrevista presencial, gravação de áudio ou vídeo.</p>
 
                     <p>Por se tratar de coleta de dados por meio de formulário eletrônico autoaplicado, este estudo apresenta risco mínimo, podendo eventualmente gerar cansaço, timidez ou algum desconforto ao responder determinadas perguntas, especialmente aquelas relacionadas à autoavaliação de conhecimento ou a experiências pessoais/familiares com a Fibromialgia. Caso sinta qualquer desconforto, você poderá interromper o preenchimento a qualquer momento, sem necessidade de justificativa, retornando a ele posteriormente ou desistindo definitivamente, sem qualquer prejuízo. Quanto à coleta e ao armazenamento dos dados, o risco identificado corresponde a eventual vazamento de informações, o qual será minimizado por meio de armazenamento seguro e anonimização das respostas, conforme descrito adiante.</p>
 
@@ -356,27 +359,79 @@
                 <button type="button" class="btn-primary" onclick="avancarParaFormulario()">Prosseguir para o Questionário</button>
             </div>
 
-            <!-- ETAPA 2: QUESTIONÁRIO -->
+            <!-- ETAPA 2: QUESTIONÁRIO EXPANDIDO -->
             <form id="form-pesquisa" class="step-section" onsubmit="enviarFormulario(event)">
                 
-                <h3>Seção I: Perfil Sociodemográfico e Acadêmico</h3>
+                <!-- BLOCO I -->
+                <h3 style="margin-top: 0;">Bloco I: Perfil Sociodemográfico</h3>
                 
                 <div class="form-group">
-                    <label class="question-label required" for="idade">1. Qual a sua idade (em anos completos)?</label>
-                    <input type="number" id="idade" name="idade" min="18" required placeholder="Ex: 21">
+                    <label class="question-label required" for="idade">1. Idade (em anos completos):</label>
+                    <input type="number" id="idade" name="idade" min="18" required placeholder="Ex: 22">
                 </div>
 
                 <div class="form-group">
-                    <label class="question-label required">2. Sexo:</label>
+                    <label class="question-label required">2. Sexo biológico:</label>
                     <div class="options-grid">
-                        <label class="option-card"><input type="radio" name="sexo" value="Feminino" required> Feminino</label>
-                        <label class="option-card"><input type="radio" name="sexo" value="Masculino"> Masculino</label>
-                        <label class="option-card"><input type="radio" name="sexo" value="Outro"> Outro / Prefiro não informar</label>
+                        <label class="option-card"><input type="radio" name="sexo_biologico" value="Feminino" required> Feminino</label>
+                        <label class="option-card"><input type="radio" name="sexo_biologico" value="Masculino"> Masculino</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="question-label required" for="curso">3. Curso de Graduação:</label>
+                    <label class="question-label required">3. Raça/Cor/Etnia autodeclarada:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="raca_cor" value="Branca" required> Branca</label>
+                        <label class="option-card"><input type="radio" name="raca_cor" value="Preta"> Preta</label>
+                        <label class="option-card"><input type="radio" name="raca_cor" value="Parda"> Parda</label>
+                        <label class="option-card"><input type="radio" name="raca_cor" value="Amarela"> Amarela</label>
+                        <label class="option-card"><input type="radio" name="raca_cor" value="Indígena"> Indígena</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required">4. Estado civil:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="estado_civil" value="Solteiro(a)" required> Solteiro(a)</label>
+                        <label class="option-card"><input type="radio" name="estado_civil" value="Casado(a) / União Estável"> Casado(a) / União Estável</label>
+                        <label class="option-card"><input type="radio" name="estado_civil" value="Divorciado(a) / Separado(a)"> Divorciado(a) / Separado(a)</label>
+                        <label class="option-card"><input type="radio" name="estado_civil" value="Viúvo(a)"> Viúvo(a)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required" for="pessoas_domicilio">5. Número de pessoas residentes no mesmo domicílio (arranjo familiar):</label>
+                    <input type="number" id="pessoas_domicilio" name="pessoas_domicilio" min="1" required placeholder="Ex: 4">
+                </div>
+
+                <!-- BLOCO II -->
+                <h3>Bloco II: Perfil Socioeconômico</h3>
+
+                <div class="form-group">
+                    <label class="question-label required">6. Renda familiar mensal total (em salários mínimos):</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="renda_familiar" value="Até 1 salário mínimo" required> Até 1 salário mínimo</label>
+                        <label class="option-card"><input type="radio" name="renda_familiar" value="De 1 a 3 salários mínimos"> De 1 a 3 salários mínimos</label>
+                        <label class="option-card"><input type="radio" name="renda_familiar" value="De 3 a 5 salários mínimos"> De 3 a 5 salários mínimos</label>
+                        <label class="option-card"><input type="radio" name="renda_familiar" value="Mais de 5 salários mínimos"> Mais de 5 salários mínimos</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required">7. Situação laboral atual (vínculo de trabalho concomitante aos estudos):</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="situacao_laboral" value="Não trabalha (apenas estuda)" required> Não trabalha (apenas estuda)</label>
+                        <label class="option-card"><input type="radio" name="situacao_laboral" value="Trabalha informalmente / Eventual"> Trabalha informalmente / Eventual</label>
+                        <label class="option-card"><input type="radio" name="situacao_laboral" value="Trabalha com vínculo formal (Meio período / Estágio remunerado fora)"> Trabalha com vínculo formal (Meio período / Estágio remunerado)</label>
+                        <label class="option-card"><input type="radio" name="situacao_laboral" value="Trabalha com vínculo formal (Tempo integral)"> Trabalha com vínculo formal (Tempo integral)</label>
+                    </div>
+                </div>
+
+                <!-- BLOCO III -->
+                <h3>Bloco III: Trajetória e Contexto Acadêmico</h3>
+
+                <div class="form-group">
+                    <label class="question-label required" for="curso">8. Curso de vinculação atual:</label>
                     <select id="curso" name="curso" required>
                         <option value="">Selecione seu curso</option>
                         <option value="Enfermagem">Enfermagem</option>
@@ -387,25 +442,127 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question-label required" for="periodo">4. Período letivo atual:</label>
-                    <input type="text" id="periodo" name="periodo" required placeholder="Ex: 4º período">
+                    <label class="question-label required" for="periodo">9. Período/Semestre letivo atual:</label>
+                    <input type="text" id="periodo" name="periodo" required placeholder="Ex: 5º período">
                 </div>
 
-                <h3 style="margin-top: 35px;">Seção II: Percepção sobre Atuação Interprofissional</h3>
-                
                 <div class="form-group">
-                    <label class="question-label required">5. Você considera que a abordagem interprofissional (envolvendo enfermagem, medicina, fisioterapia e psicologia) é essencial para o manejo adequado da Fibromialgia?</label>
+                    <label class="question-label required">10. Ciclo de formação profissional:</label>
                     <div class="options-grid">
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Concordo totalmente" required> Concordo totalmente</label>
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Concordo parcialmente"> Concordo parcialmente</label>
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Neutro"> Neutro / Indeciso</label>
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Discordo parcialmente"> Discordo parcialmente</label>
-                        <label class="option-card"><input type="radio" name="interprofissional" value="Discordo totalmente"> Discordo totalmente</label>
+                        <label class="option-card"><input type="radio" name="ciclo_formacao" value="Ciclo Básico (1º ao 4º período)" required> Ciclo Básico (1º ao 4º período)</label>
+                        <label class="option-card"><input type="radio" name="ciclo_formacao" value="Ciclo Clínico / Pré-profissionalizador"> Ciclo Clínico / Pré-profissionalizador</label>
+                        <label class="option-card"><input type="radio" name="ciclo_formacao" value="Ciclo Final / Estágio Curricular Supervisionado / Internato"> Ciclo Final / Estágio Curricular Supervisionado / Internato</label>
                     </div>
                 </div>
 
-                <h3 style="margin-top: 35px;">Seção III: Domínio Teórico-Clínico</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">Indique seu grau de concordância com as afirmativas abaixo:</p>
+                <div class="form-group">
+                    <label class="question-label required">11. Histórico de trancamentos ou reprovações em disciplinas:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="historico_reprovacoes" value="Nenhuma reprovação ou trancamento" required> Nenhuma reprovação ou trancamento</label>
+                        <label class="option-card"><input type="radio" name="historico_reprovacoes" value="Possui histórico de reprovação em disciplina(s)"> Possui histórico de reprovação em disciplina(s)</label>
+                        <label class="option-card"><input type="radio" name="historico_reprovacoes" value="Possui histórico de trancamento parcial/total"> Possui histórico de trancamento parcial/total</label>
+                        <label class="option-card"><input type="radio" name="historico_reprovacoes" value="Possui histórico de reprovações e trancamentos"> Possui histórico de reprovações e trancamentos</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required" for="cre">12. Coeficiente de Rendimento / Desempenho Acadêmico (CRE aproximado):</label>
+                    <input type="number" step="0.1" id="cre" name="cre" min="0" max="10" required placeholder="Ex: 8.5">
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required">13. Tempo médio semanal dedicado aos estudos extraclasse:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="tempo_estudo_extraclasse" value="Até 2 horas por semana" required> Até 2 horas por semana</label>
+                        <label class="option-card"><input type="radio" name="tempo_estudo_extraclasse" value="De 3 a 5 horas por semana"> De 3 a 5 horas por semana</label>
+                        <label class="option-card"><input type="radio" name="tempo_estudo_extraclasse" value="De 6 a 10 horas por semana"> De 6 a 10 horas por semana</label>
+                        <label class="option-card"><input type="radio" name="tempo_estudo_extraclasse" value="Mais de 10 horas por semana"> Mais de 10 horas por semana</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required">14. Nível de satisfação pessoal com o curso escolhido:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="satisfacao_curso" value="Muito Insatisfeito(a)" required> Muito Insatisfeito(a)</label>
+                        <label class="option-card"><input type="radio" name="satisfacao_curso" value="Insatisfeito(a)"> Insatisfeito(a)</label>
+                        <label class="option-card"><input type="radio" name="satisfacao_curso" value="Neutro"> Neutro</label>
+                        <label class="option-card"><input type="radio" name="satisfacao_curso" value="Satisfeito(a)"> Satisfeito(a)</label>
+                        <label class="option-card"><input type="radio" name="satisfacao_curso" value="Muito Satisfeito(a)"> Muito Satisfeito(a)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required">15. Nível de satisfação com a infraestrutura da instituição:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="satisfacao_infraestrutura" value="Muito Insatisfeito(a)" required> Muito Insatisfeito(a)</label>
+                        <label class="option-card"><input type="radio" name="satisfacao_infraestrutura" value="Insatisfeito(a)"> Insatisfeito(a)</label>
+                        <label class="option-card"><input type="radio" name="satisfacao_infraestrutura" value="Neutro"> Neutro</label>
+                        <label class="option-card"><input type="radio" name="satisfacao_infraestrutura" value="Satisfeito(a)"> Satisfeito(a)</label>
+                        <label class="option-card"><input type="radio" name="satisfacao_infraestrutura" value="Muito Satisfeito(a)"> Muito Satisfeito(a)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required" for="area_interesse">16. Área de maior interesse dentro da profissão escolhida:</label>
+                    <input type="text" id="area_interesse" name="area_interesse" required placeholder="Ex: Saúde da Mulher, Reumatologia, Atenção Básica, Saúde Mental, etc.">
+                </div>
+
+                <!-- BLOCO IV -->
+                <h3>Bloco IV: Exposição Curricular e Acadêmica à Fibromialgia (FM)</h3>
+
+                <div class="form-group">
+                    <label class="question-label required">17. Presença de contato curricular prévio sobre a síndrome da Fibromialgia na graduação:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="contato_curricular_fm" value="Sim, disciplina específica ou conteúdo estruturado" required> Sim, em disciplina específica ou conteúdo estruturado</label>
+                        <label class="option-card"><input type="radio" name="contato_curricular_fm" value="Sim, abordado de forma superficial/pontual"> Sim, abordado de forma superficial/pontual</label>
+                        <label class="option-card"><input type="radio" name="contato_curricular_fm" value="Não tive contato na graduação"> Não tive contato na graduação</label>
+                        <label class="option-card"><input type="radio" name="contato_curricular_fm" value="Não me recordo"> Não me recordo</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required">18. Engajamento em atividades extracurriculares correlatas (Ligas acadêmicas de dor, reumatologia, clínica médica, projetos de extensão/pesquisa):</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="atividades_extracurriculares" value="Participo ou participei ativamente" required> Participo ou participei ativamente</label>
+                        <label class="option-card"><input type="radio" name="atividades_extracurriculares" value="Nunca participei, mas tenho interesse"> Nunca participei, mas tenho interesse</label>
+                        <label class="option-card"><input type="radio" name="atividades_extracurriculares" value="Nunca participei e não tenho interesse"> Nunca participei e não tenho interesse</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required">19. Comportamento de busca autônoma por literatura científica ou atualizações sobre a Fibromialgia:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="busca_autonoma_literatura" value="Frequente (pesquiso artigos, diretrizes e diretrizes clínicas regularmente)" required> Frequente (pesquiso artigos e diretrizes regularmente)</label>
+                        <label class="option-card"><input type="radio" name="busca_autonoma_literatura" value="Ocasional (apenas quando solicitado em trabalhos ou dúvidas pontuais)"> Ocasional (apenas quando solicitado em trabalhos ou dúvidas pontuais)</label>
+                        <label class="option-card"><input type="radio" name="busca_autonoma_literatura" value="Rara ou Nenhuma"> Rara ou Nenhuma</label>
+                    </div>
+                </div>
+
+                <!-- BLOCO V -->
+                <h3>Bloco V: Experiência Assistencial e Vínculo Pessoal</h3>
+
+                <div class="form-group">
+                    <label class="question-label required">20. Histórico de atendimento prático ou acompanhamento clínico de indivíduos com FM durante estágios curriculares/práticas:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="atendimento_pratico_fm" value="Sim, acompanhei/atendi múltiplos pacientes" required> Sim, acompanhei/atendi múltiplos pacientes</label>
+                        <label class="option-card"><input type="radio" name="atendimento_pratico_fm" value="Sim, atendi/acompanhei pelo menos um paciente"> Sim, atendi/acompanhei pelo menos um paciente</label>
+                        <label class="option-card"><input type="radio" name="atendimento_pratico_fm" value="Não, nunca atendi pacientes com FM em práticas acadêmicas"> Não, nunca atendi pacientes com FM em práticas acadêmicas</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required">21. Presença de histórico diagnóstico pessoal ou vínculo familiar/afetivo próximo com pessoas diagnosticadas com FM:</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="vinculo_pessoal_fm" value="Tenho diagnóstico pessoal de Fibromialgia" required> Tenho diagnóstico pessoal de Fibromialgia</label>
+                        <label class="option-card"><input type="radio" name="vinculo_pessoal_fm" value="Possuo familiar próximo com diagnóstico de FM"> Possuo familiar próximo com diagnóstico de FM</label>
+                        <label class="option-card"><input type="radio" name="vinculo_pessoal_fm" value="Possuo amigo(a) ou conhecido(a) próximo com diagnóstico de FM"> Possuo amigo(a) ou conhecido(a) próximo com diagnóstico de FM</label>
+                        <label class="option-card"><input type="radio" name="vinculo_pessoal_fm" value="Não tenho diagnóstico e não conheço pessoas próximas com FM"> Não tenho diagnóstico e não conheço pessoas próximas com FM</label>
+                    </div>
+                </div>
+
+                <!-- BLOCO VI -->
+                <h3>Bloco VI: Avaliação de Conhecimento e Percepção sobre a Fibromialgia</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">22. Indique seu grau de concordância com as afirmativas teórico-clínicas e epidemiológicas abaixo (Escala Likert de 5 pontos):</p>
 
                 <div class="table-container">
                     <table class="likert-table">
@@ -421,7 +578,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>A Fibromialgia é caracterizada por processos inflamatórios periféricos graves nas articulações afetadas.</td>
+                                <td>A Fibromialgia é uma síndrome de dor crônica nociplástica sem processos inflamatórios periféricos concomitantes nas articulações.</td>
                                 <td><input type="radio" name="likert_1" value="1" required></td>
                                 <td><input type="radio" name="likert_1" value="2"></td>
                                 <td><input type="radio" name="likert_1" value="3"></td>
@@ -429,7 +586,7 @@
                                 <td><input type="radio" name="likert_1" value="5"></td>
                             </tr>
                             <tr>
-                                <td>O diagnóstico da Fibromialgia é essencialmente clínico, englobando a avaliação de dor generalizada e sintomas associados.</td>
+                                <td>O diagnóstico da FM é predominantemente clínico, baseado no Índice de Dor Generalizada e na Escala de Gravidade dos Sintomas, descontinuando a dependência exclusiva da palpação dos pontos dolorosos (tender points).</td>
                                 <td><input type="radio" name="likert_2" value="1" required></td>
                                 <td><input type="radio" name="likert_2" value="2"></td>
                                 <td><input type="radio" name="likert_2" value="3"></td>
@@ -437,7 +594,7 @@
                                 <td><input type="radio" name="likert_2" value="5"></td>
                             </tr>
                             <tr>
-                                <td>O uso isolado de corticoides e anti-inflamatórios não esteroidais (AINEs) possui eficácia recomendada de primeira linha no tratamento.</td>
+                                <td>O tratamento farmacológico de primeira linha inclui neuromoduladores e antidepressivos, sendo o uso de corticoides e anti-inflamatórios desaconselhado devido à eficácia limitada ou nula.</td>
                                 <td><input type="radio" name="likert_3" value="1" required></td>
                                 <td><input type="radio" name="likert_3" value="2"></td>
                                 <td><input type="radio" name="likert_3" value="3"></td>
@@ -445,15 +602,38 @@
                                 <td><input type="radio" name="likert_3" value="5"></td>
                             </tr>
                             <tr>
-                                <td>Medidas não farmacológicas, como exercícios físicos aeróbicos e intervenções psicológicas, são pilares fundamentais no manejo terapêutico.</td>
+                                <td>Exercícios físicos aeróbicos de intensidade progressiva, fortalecimento muscular e intervenções psicológicas (como TCC) constituem os pilares não farmacológicos do manejo.</td>
                                 <td><input type="radio" name="likert_4" value="1" required></td>
                                 <td><input type="radio" name="likert_4" value="2"></td>
                                 <td><input type="radio" name="likert_4" value="3"></td>
                                 <td><input type="radio" name="likert_4" value="4"></td>
                                 <td><input type="radio" name="likert_4" value="5"></td>
                             </tr>
+                            <tr>
+                                <td>A prevalência epidemiológica da Fibromialgia na população geral é significativamente superior no sexo feminino.</td>
+                                <td><input type="radio" name="likert_5" value="1" required></td>
+                                <td><input type="radio" name="likert_5" value="2"></td>
+                                <td><input type="radio" name="likert_5" value="3"></td>
+                                <td><input type="radio" name="likert_5" value="4"></td>
+                                <td><input type="radio" name="likert_5" value="5"></td>
+                            </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required">23. Autoeficácia percebida: Como você avalia seu próprio nível de preparação profissional para assistir e manejar um paciente acometido pela Fibromialgia no SUS?</label>
+                    <div class="options-grid">
+                        <label class="option-card"><input type="radio" name="autoeficacia_percebida" value="Totalmente despreparado(a)" required> Totalmente despreparado(a)</label>
+                        <label class="option-card"><input type="radio" name="autoeficacia_percebida" value="Parcialmente preparado(a)"> Parcialmente preparado(a)</label>
+                        <label class="option-card"><input type="radio" name="autoeficacia_percebida" value="Moderadamente preparado(a)"> Moderadamente preparado(a)</label>
+                        <label class="option-card"><input type="radio" name="autoeficacia_percebida" value="Bem preparado(a)"> Bem preparado(a)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question-label required" for="percepcao_ensino">24. Sob sua ótica discente, quais as principais fortalezas e/ou fragilidades do processo de ensino-aprendizagem vivenciado em seu curso acerca da Fibromialgia e dor crônica?</label>
+                    <textarea id="percepcao_ensino" name="percepcao_ensino" rows="4" required placeholder="Descreva brevemente sua percepção sobre a abordagem do tema na sua formação..."></textarea>
                 </div>
 
                 <button type="submit" class="btn-primary" style="margin-top: 30px;">Enviar Respostas</button>
