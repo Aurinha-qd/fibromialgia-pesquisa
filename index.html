@@ -784,7 +784,39 @@
         event.preventDefault();
         alert('Muito obrigado! Suas respostas foram registradas com sucesso.');
     }
-</script>
+async function enviarFormulario(event) {
+        event.preventDefault();
 
-</body>
-</html>
+        // Desabilita o botão para evitar duplo clique
+        const btnSubmit = event.target.querySelector('button[type="submit"]');
+        btnSubmit.disabled = true;
+        btnSubmit.textContent = "Enviando respostas...";
+
+        // Coleta todos os dados do formulário
+        const formData = new FormData(event.target);
+        const dados = Object.fromEntries(formData.entries());
+
+        // COLE AQUI A SUA URL DA API DO GOOGLE APPS SCRIPT
+        const urlAPI =https://script.google.com/macros/s/AKfycbz-X4XE9Nbn77_XbP1u9vGIOHp-6HEqYj9zpzVpd15oXEe7HS6RHBJSkJjM0Nt4OsM8/exec;
+
+        try {
+            await fetch(urlAPI, {
+                method: "POST",
+                mode: "no-cors", // Necessário para requisições externas ao Google Apps Script
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dados)
+            });
+
+            alert("Muito obrigado! Suas respostas foram registradas com sucesso na pesquisa.");
+            event.target.reset();
+            location.reload();
+            
+        } catch (error) {
+            console.error("Erro ao enviar:", error);
+            alert("Ocorreu um erro ao enviar as respostas. Por favor, tente novamente.");
+            btnSubmit.disabled = false;
+            btnSubmit.textContent = "Enviar Respostas";
+        }
+    }
